@@ -1,6 +1,35 @@
 # Kor_llama
 llama 를 한국어 기반으로  Train 하고자 하는 mini project입니다. 
 
+|학습|시간 | GPU |
+|-----|------|------|
+|Colab|18hour| A100 |
+
+
+
+
+## Model 
+
+
+
+## Dataset 
+
+[Aihub](https://aihub.or.kr/aihubdata/data/view.do?currMenu=&topMenu=&aihubDataSe=data&dataSetSn=71517)
+
+
+## FineTuning 
+
+
+
+## Result 
+
+
+`before tuning` 
+
+
+
+`after tuning` 
+
 
 
 ## Reference 
