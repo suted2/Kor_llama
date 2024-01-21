@@ -24,8 +24,8 @@ base model : LLama2
 ![image](https://github.com/suted2/Kor_llama/assets/101646531/0f8d9245-b281-44c7-b6cf-4694cee54b14)
 
 
-|데이터| col 이름|	type|	preprocessing|
-|----|-----|-----|-----------|
+|데이터 col 이름|	type|	preprocessing|
+|--------|-----|-----------|
 |대출금액|	int	| |
 |대출기간	|object|	month 제거| 
 |근로기간	|object	|year 제거|
