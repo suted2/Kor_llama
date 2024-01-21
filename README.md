@@ -1,9 +1,15 @@
-# Kor_llama
+![image](https://github.com/suted2/Kor_llama/assets/101646531/3e2050be-4771-4797-93fd-c41329fc6e86)# Kor_llama
 llama 를 한국어 기반으로  Train 하고자 하는 mini project입니다. 
 
 |학습|시간 | GPU |
 |-----|------|------|
 |Colab|60hour| RTX 4090 |
+
+
+### EVAL 
+![image](https://github.com/suted2/Kor_llama/assets/101646531/5792fe5c-d505-4b94-8f4b-cf3e924621b1)
+
+높은 점수는 아니지만 확실하게 finetuning 되었다는 것을 알 수 있습니다. 
 
 ## Data 
 
@@ -63,7 +69,7 @@ Trainable: 4194304 | total: 6860050432 | Percentage: 0.0611%
 ```
 
 `huggingface Trainer`
-```
+```python
 from transformers import Trainer, TrainingArguments
 
 args = TrainingArguments(
@@ -99,7 +105,9 @@ trainer = Trainer(
 
 ```
 
-```
+모델 생성 configure
+
+```python
 generate_config = GenerationConfig(
         pad_token_id = tokenizer.eos_token_id,
         do_sample=True,
@@ -341,6 +349,24 @@ His/Her total overdue payment $ 0.000000. He/She have 0.000000 overdue account f
 ###Other conditions : overdue payment was not made within
 
 ```
+
+### INSIGHT 
+
+
+1. max_token_length : 생성 토큰의 갯수에 따라 , ( max token 을 top k 를 통해 앞에 생성할 token 의 개수를 보고 설정하기에 )
+   차이가 존재한다. 
+`max_token 20` 
+![image](https://github.com/suted2/Kor_llama/assets/101646531/528fe059-e253-420b-92c6-9b2b98d5245c)
+
+`max_token 100` 
+![image](https://github.com/suted2/Kor_llama/assets/101646531/c66a139d-080c-4689-b266-023d778b2fb0)
+
+2.  Peft 도중 step 이 save 되더라도 adapter 가 아닌 configure 가 저장 되는 구조이기에 원하는
+    
+    방식대로 finetuning 된 모델이 나오지 않는다. 
+    
+3.  학생의 점수 , 실력, 참여도를 자체적인 기준을 세워서 정립하고 이를 바탕으로 LLM을 학습을 시킨다면 좋은 결과를 얻을 수 있을 것이라고 생각한다.
+    - 보조교사, 도우미, 공정한 채점 기준 등의 지표로 작동할 수 있지 않을까 ? ( 신뢰성 여부 판별 不 )
 
 
 
